@@ -1,0 +1,146 @@
+<header>
+  <!-- Contenedor de íconos sociales y logo -->
+   <br>
+  <div class="header-top">
+      <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"><img src="/img/facebook_logo1.png" alt="Facebook"></a>
+          <a href="https://instagram.com" target="_blank"><img src="/img/Instagram_icon.png" alt="Instagram"></a>
+          <a href="https://wa.me/123456789" target="_blank"><img src="/img/whatsapp_icon.png" alt="WhatsApp"></a>
+      </div>
+      <img src="/img/patadeperro.png" alt="Logo de la Fundación Peluditos" class="logo">
+      <div class="placeholder"></div> <!-- Espacio para equilibrar el layout -->
+  </div>
+  <h1>Fundación Peluditos</h1>
+  <nav>
+      <a href="/">Inicio</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/adopciones">Adopciones</a>
+      <a href="/contacto">Contacto</a>
+  </nav>
+</header>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+}
+header {
+  background-color: #87CEEB;
+  padding: 20px;
+  text-align: center;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between; /* Espacio entre íconos y logo */
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.social-icons {
+  display: flex;
+  justify-content: flex-start;
+}
+.social-icons a {
+  margin-right: 10px;
+}
+.logo {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Centra el logo horizontalmente */
+}
+.placeholder {
+  width: 100px; /* Esto sirve para crear un espacio visual en la esquina derecha */
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+    color: #4682B4; /* Cambia el color del texto al pasar el mouse (hover) */
+  }
+
+  /* Subrayado que aparece en hover */
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #4682B4; /* Color del subrayado en hover */
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after {
+    width: 100%; /* El subrayado se expande al ancho completo del enlace en hover */
+  }
+.hero {
+  background-image: url('/perritos.jpg');
+  background-size: cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  font-family: 'Pacifico', cursive;
+}
+h5 {
+  font-family: 'Pacifico', cursive;
+}
+.hero h3 {
+  color: white;
+  font-size: 48px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+.content {
+  padding: 20px;
+  text-align: center;
+}
+.adopciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px auto;
+  justify-self: center;
+  align-self: center;
+}
+.carrusel {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 7%;
+}
+.carrusel img {
+  width: 100%;
+  display: none;
+}
+.carrusel img.active {
+  display: block;
+}
+.titulo-carrusel {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 36px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.imagen1, .imagen2, .imagen3 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 20px;
+}
+</style>

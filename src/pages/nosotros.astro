@@ -1,0 +1,44 @@
+---
+import AdopcionCard from '../components/AdopcionCard.astro'; // Componente para perritos en adopción
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Fundación Peluditos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<Header/>
+<body>
+    <> 
+   <br>
+    <h2>¿Quiénes Somos?</h2>
+    <p>En la Fundación de Perritos Felices, nuestra misión es rescatar, rehabilitar y encontrar hogares amorosos para perritos abandonados. Creemos que cada perrito merece una segunda oportunidad y trabajamos arduamente para crear conciencia sobre la importancia de la adopción.</p>
+
+    <h2>Nuestro Equipo:</h2>
+    <div class="equipo">
+        <div class="miembro">
+            <h3>Juan Pérez</h3>
+            <img src="/img/perrito1.jpg" class="imagen1" alt="Perro 1">
+            <p>Director</p>
+        </div>
+        <div class="miembro">
+            <h3>María López</h3>
+            <img src="/img/perrito1.jpg" class="imagen1" alt="Perro 1">
+            <p>Veterinaria</p>
+        </div>
+        <div class="miembro">
+            <h3>Carmen Sánchez</h3>
+            <img src="/img/perrito1.jpg" class="imagen1" alt="Perro 1">
+            <p>Voluntaria</p>
+        </div>
+    </div>
+</body>
+<Footer/>
+</html>

@@ -1,0 +1,59 @@
+---
+const { nombre, edad, descripcion, imagen } = Astro.props;
+---
+
+<div class="card-container">
+  <div class="card">
+    <img src={imagen} alt={`Foto de ${nombre}`} style="width: 100%; height: auto;" />
+    <div class="info">
+      <h3>{nombre}</h3>
+      <p>{descripcion}</p>
+      <p>Edad: {edad}</p>
+      <a href="/apadrinar" class="apadrinar">Apadrina</a>      
+    </div>
+  </div>
+  
+
+<style>
+  .card-container {
+    display: flex;
+    flex-direction: row; /* Alineación horizontal */
+    justify-content: center; /* Centrar las tarjetas en la página */
+    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan si hay muchas */
+    gap: 20px; /* Espacio entre tarjetas */
+    padding: 20px;
+    width: 100%; /* Ancho del contenedor al 80% de la página */
+    margin: 0 auto; /* Centrarlas automáticamente */
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 2300px; /* Ancho fijo para controlar el tamaño de cada tarjeta */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  .info {
+    padding: 10px;
+  }
+
+  .apadrinar {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    display: inline-block;
+  }
+
+  .apadrinar:hover {
+    background-color: #f1c40f;
+  }
+</style>

@@ -1,0 +1,251 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .nombre{
+      height: 40px;
+      width: 200px;
+      margin: 20px;
+  }
+  .correo{
+    height: 40px;
+    width: 200px;
+    margin: 20px;
+}
+  header {
+    background-color: #87CEEB;
+    padding: 20px;
+    text-align: center;
+  }
+  .logo {
+      width: 100px; /* Ajusta el tamaño de la imagen del logo */
+      height: auto;
+      margin-bottom: 10px; /* Espacio entre el logo y el título */
+  }
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease; /* Transición suave */
+  }
+  nav a:hover {
+    color: #4682B4; /* Cambia el color del texto al pasar el mouse (hover) */
+  }
+
+  /* Subrayado que aparece en hover */
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #4682B4; /* Color del subrayado en hover */
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after {
+    width: 100%; /* El subrayado se expande al ancho completo del enlace en hover */
+  }
+
+  .hero {
+    background-image: url('/perritos.jpg');
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  h1 {
+        font-family: 'Pacifico', cursive;
+  }
+
+  h5 {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px !important;   
+  }
+
+  .hero h3 {
+    color: white;
+    font-size: 48px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+  }
+  .content {
+    padding: 20px;
+    text-align: center;
+  }
+  .adopciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px auto;
+    justify-self: center;
+    align-self: center;
+  }
+  .social-icons{
+      display: flex;
+  }
+
+  .carrusel {
+      position: relative;
+      max-width: 800px; /* Cambia el tamaño según sea necesario */
+      margin: auto;
+      overflow: hidden; /* Oculta las imágenes que no se muestran */
+      padding:10px;
+      border-radius: 7%;
+  }
+
+  .carrusel img {
+      width: 100%;
+      display: none; /* Oculta todas las imágenes inicialmente */
+  }
+
+  .carrusel img.active {
+      display: block; /* Muestra solo la imagen activa */
+  }
+
+  .titulo-carrusel {
+  position: absolute;
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%); /* Ajusta la posición para centrar completamente */
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Sombra para destacar el texto */
+  background: linear-gradient(135deg, rgba(47, 138, 180, 0.8), rgba(76, 164, 199, 0.8)); /* Fondo con degradado */
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.7); /* Borde blanco */
+  box-shadow: 0px 0px 15px rgba(33, 144, 214, 0.8); /* Efecto de brillo */
+  animation: zoomIn 1s ease-out; /* Animación de entrada */
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5); /* Comienza más pequeño */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1); /* Tamaño original */
+    opacity: 1;
+  }
+}
+  .imagen1{
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 20px;
+  }
+
+  .imagen2{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.imagen3{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0x;
+    text-align: center; /* Centra el texto */
+}
+
+header {
+    background-color: #87CEEB; /* Color del encabezado */
+    color: white;
+    padding: 10px 0;
+}
+
+h1, h2 {
+    margin: 20px 0;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.equipo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.miembro {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.contacto {
+    margin-top: 30px;
+}
+
+/* Estilo para la imagen del logo */
+.logo {
+    width: 100px; /* Ajusta el tamaño de la imagen del logo */
+    height: auto;
+    margin-bottom: 10px; /* Espacio entre el logo y el título */
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #87CEEB; /* Color del botón */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Color del botón al pasar el mouse */
+}
+
+h5 {
+    font-family: 'Pacifico', cursive;
+    font-size: 30px !important;   
+}

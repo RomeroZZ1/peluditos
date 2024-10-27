@@ -1,0 +1,269 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const dogs = [
+  { name: "Max", age: 2, image: "/img/adopcion1.jpg", description: "Max es un perro juguetón y cariñoso.",Vacunado: "Si", Age: "2",raza: "Firulais",esteralizado: "No", size: "Mediano" },
+  { name: "Luna", age: 3, image: "/img/adopcion2.jpg", description: "Luna es una perrita tranquila y amorosa.",Vacunado: "Si", Age: "3",raza: "Pastor Aleman",size: "Pequeño" },
+  { name: "Rex", age: 4, image: "/img/adopcion3.jpg", description: "Rex es protector y enérgico, ideal para familias activas.",Vacunado: "No",Age: "4",raza: "Labrador",esteralizado: "Si", size: "Grande" },
+  { name: "Bella", age: 1, image: "/assets/perro4.jpg", description: "Bella es joven y muy curiosa, adora jugar.",Vacunado: "Si",Age: "1",raza: "Pastor Aleman",esteralizado:"Si", size: "Pequeño" },
+];
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopciones - Fundación Peluditos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+      /* Estilos generales */
+
+
+      .description{
+        font-weight: 400;
+        font-style: bold;
+        font-size: larger;
+      }
+      body, html {
+        margin: 0;
+        padding: 0;
+1        font-family: 'Roboto', sans-serif;
+        box-sizing: border-box;
+      }
+      main {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      /* Estilos del carrusel */
+      .carrusel {
+        width: 100%;
+        overflow: hidden;
+        margin: 20px 0;
+      }
+      .carrusel img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        transition: transform 0.5s ease-in-out;
+      }
+      .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+        text-align: center;
+        width: 280px;
+        margin: 20px;
+        display: inline-block;
+      }
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .card h3 {
+        margin: 10px 0;
+        font-size: 1.5rem;
+        color: #333;
+      }
+      .card p {
+        padding: 0 10px 10px;
+        color: #777;
+      }
+      .card button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-bottom: 15px;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+      .card button:hover {
+        background-color: #45a049;
+      }
+
+      /* Contenedor del grid */
+      .adopciones-grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .adopt-button {
+    background-color: #4CAF50; /* Color del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    margin-bottom: 15px; /* Espaciado inferior */
+    cursor: pointer; /* Cambia el cursor al pasar sobre él */
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Para que respete padding y margin */
+    transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.adopt-button:hover {
+    background-color: #45a049; /* Color al pasar el ratón */
+}
+
+
+      /* Estilos del filtro */
+      .filter {
+        margin-bottom: 20px;
+      }
+      .filter select {
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      /* Estilos del modal */
+      .info-modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+      }
+      .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <!-- Header -->
+    <Header />
+
+    <main>
+      <!-- Carrusel -->
+      <div class="carrusel">
+        <img id="carrusel-image" src="/assets/perro1.jpg" alt="Imagen carrusel">
+      </div>
+
+      <!-- Filtro dinámico -->
+      <div class="filter">
+        <label for="sizeFilter">Filtrar por tamaño:</label>
+        <select id="sizeFilter">
+          <option value="Todos">Todos</option>
+          <option value="Pequeño">Pequeño</option>
+          <option value="Mediano">Mediano</option>
+          <option value="Grande">Grande</option>
+        </select>
+      </div>
+
+      <!-- Grid de adopciones -->
+      <div id="adopciones-grid" class="adopciones-grid">
+        {dogs.map((dog, index) => (
+          <div class="card" data-size={dog.size}>
+            <img src={dog.image} alt={`Foto de ${dog.name}`} />
+            <h3>{dog.name}</h3>
+            <p class="description"><b>{dog.description}</b></p>
+            <p>Edad: {dog.Age} años</p>
+            <p>Tamaño: {dog.size}</p>
+            <p>Esterilizado: {dog.esteralizado ? 'Si' : 'No'}</p>
+            <p>Raza: {dog.raza}</p>
+            <p>Vacunado: {dog.Vacunado ? 'Si' : 'No'}</p>
+            <a href={`adopcion/${dog.name}`} class="adopt-button">Adoptar ahora</a>
+
+            
+          </div>
+        ))}
+      </div>
+
+
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+    <script>
+      // Carrusel dinámico
+      const images = [
+        "/img/adopcion1.jpg",
+        "/img/adopcion2.jpg",
+        "/img/adopcion3.jpg",
+        "/assets/perro4.jpg"
+      ];
+      let currentIndex = 0;
+      const carruselImage = document.getElementById('carrusel-image');
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        carruselImage.src = images[currentIndex];
+      }, 5000); // Cambia la imagen cada 5 segundos
+
+      // Filtro dinámico por tamaño
+      const sizeFilter = document.getElementById('sizeFilter');
+      const adopcionesGrid = document.getElementById('adopciones-grid');
+      sizeFilter.addEventListener('change', () => {
+        const selectedSize = sizeFilter.value;
+        const cards = adopcionesGrid.querySelectorAll('.card');
+        cards.forEach(card => {
+          if (selectedSize === 'Todos' || card.dataset.size === selectedSize) {
+            card.style.display = 'inline-block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+
+      // Funciones para abrir y cerrar modales
+      function openInfoModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+      }
+
+      function closeInfoModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+
+      // Cerrar el modal cuando se hace clic fuera del contenido
+      window.onclick = function(event) {
+        const modals = document.querySelectorAll('.info-modal');
+        modals.forEach(modal => {
+          if (event.target === modal) {
+            closeInfoModal(modal.id);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
